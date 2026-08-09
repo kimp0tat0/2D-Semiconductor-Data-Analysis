@@ -1,2 +1,17 @@
-# 2D-Semiconductor-Data-Analysis
-2D Semiconductor Material Screening &amp; Data Analysis Code
+ 차세대 2D 반도체 소재 적합성 판별 데이터 분석
+
+덴마크 공과대학교(DTU) C2DB의 17,001개 2D 물성 데이터셋을 활용하여, 뉴로모픽 및 미세 공정에 최적화된 2D 반도체 후보 물질을 선별하는 4단계 정량 스크리닝 알고리즘입니다.
+
+ 기술 스택 & 데이터
+- Language: Python 3
+- Libraries: SQLite3, Pandas, NumPy, Matplotlib
+- Dataset:DTU C2DB (`c2db.db`, 17,001개 Raw Data)
+
+ 주요 분석 알고리즘
+1. 1단계 (밴드갭): 1.0 ~ 2.0 eV 범위 필터링 (양자 터널링 방지)
+2. 2단계 (공간군): 대표 2D 층상 공간군(162, 164, 166, 187, 191, 194) 선별 (DIBL 억제)
+3. 3단계 (열역학 안정성): 형성 에너지($E_{form} \le 0$) 기반 Min-Max Scaling (100점)
+4. 4단계 (계면 저항): Au 전극 일함수(5.1 eV) 기준 가우시안 감쇠 모델 적용 (100점)
+
+ 결과 도출
+- 상위 10개 최우수 2D 반도체 후보 물질 산출 및 시각화 (최우수 후보: 산소 종단 맥신 계열)
